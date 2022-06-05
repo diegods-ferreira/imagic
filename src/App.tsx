@@ -1,5 +1,12 @@
 import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
+
+import { theme } from './styles/theme';
 
 export const App: React.FC = () => {
-  return <h1>Hello World!</h1>;
+  return (
+    <ChakraProvider theme={theme}>
+      <h1>Hello World!</h1>
+    </ChakraProvider>
+  );
 };
