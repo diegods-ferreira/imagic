@@ -28,7 +28,7 @@ export const NavBar: React.FC = () => {
     <HStack
       as="nav"
       w="100%"
-      h={{ base: '64px', md: '80px' }}
+      minH={{ base: '64px', md: '80px' }}
       borderBottomWidth="1px"
       px={{ base: '16px', md: '80px' }}
       spacing="24px"
