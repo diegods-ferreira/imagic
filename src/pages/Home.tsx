@@ -1,8 +1,10 @@
 import React from 'react';
-import { Box, Image, SimpleGrid, VStack } from '@chakra-ui/react';
+import { SimpleGrid, VStack } from '@chakra-ui/react';
 
 import { NavBar } from '../components/nav-bar.component';
 import { Hero } from '../components/hero.component';
+
+import { ImageCard } from '../components/image-card.component';
 
 export const HomePage: React.FC = () => {
   return (
@@ -11,11 +13,17 @@ export const HomePage: React.FC = () => {
 
       <Hero />
 
-      <SimpleGrid columns={3} spacing="16px" w="100%" maxW="1080px" border="1px solid red" py="24px">
-        <Box borderRadius="16px" overflow="hidden">
-          <Image src="https://source.unsplash.com/random/1920x1080/?landscape" w="100%" />
-          <h1>Teste</h1>
-        </Box>
+      <SimpleGrid
+        columns={{ base: 2, md: 3 }}
+        spacing={{ base: '16px', md: '24px' }}
+        w="100%"
+        maxW="1080px"
+        px="16px"
+        py="32px"
+      >
+        <ImageCard />
+        <ImageCard />
+        <ImageCard />
       </SimpleGrid>
     </VStack>
   );
