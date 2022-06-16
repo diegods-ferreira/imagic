@@ -31,6 +31,7 @@ export const NavBar: React.FC = () => {
       minH={{ base: '64px', md: '80px' }}
       borderBottomWidth="1px"
       px={{ base: '16px', md: '80px' }}
+      bgColor={useColorModeValue('gray.50', 'gray.800')}
       spacing="24px"
     >
       <HStack spacing="16px" pointerEvents="none">

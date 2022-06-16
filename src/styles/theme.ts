@@ -63,6 +63,9 @@ const styles = {
     },
     'body, input, textarea, select': {
       color: props.colorMode === 'light' ? 'text.500' : 'text.50'
+    },
+    body: {
+      bgColor: props.colorMode === 'light' ? 'gray.50' : 'gray.900'
     }
   })
 };
