@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FiSearch, FiX } from 'react-icons/fi';
 import {
   VStack,
   useColorModeValue,
@@ -14,7 +15,6 @@ import {
   InputRightElement,
   useBreakpointValue
 } from '@chakra-ui/react';
-import { FiSearch, FiX } from 'react-icons/fi';
 
 export const Hero: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,6 +22,7 @@ export const Hero: React.FC = () => {
   return (
     <Box
       w="100%"
+      mt={{ base: '64px', md: '80px' }}
       bgColor={useColorModeValue('gray.100', 'gray.900')}
       bgImage="url(https://source.unsplash.com/random/1920x1080/?landscape)"
       bgPosition="center"

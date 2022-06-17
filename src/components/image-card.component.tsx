@@ -34,6 +34,7 @@ export const ImageCard: React.FC<ImageCardProps> = ({ image }) => {
         spacing="16px"
         w="100%"
         alignItems="flex-end"
+        justifyContent="space-between"
         p={{ base: '24px', md: '80px 24px 24px' }}
         bgColor={{ base: useColorModeValue('gray.50', 'gray.800'), md: 'transparent' }}
         bgGradient={{ md: 'linear(to-t, blackAlpha.800, transparent)' }}
@@ -42,7 +43,7 @@ export const ImageCard: React.FC<ImageCardProps> = ({ image }) => {
         transitionDuration={{ md: '0.5s' }}
       >
         <VStack flex="1" alignItems="flex-start">
-          <HStack color={{ md: 'gray.100' }}>
+          <HStack color={{ md: 'gray.100' }} alignItems="center">
             <Avatar size="xs" src={image.user.profile_image.small} />
 
             <Heading size={{ base: 'xs', md: 'sm' }} noOfLines={1} alignItems="center">

@@ -28,11 +28,14 @@ export const NavBar: React.FC = () => {
     <HStack
       as="nav"
       w="100%"
-      minH={{ base: '64px', md: '80px' }}
+      h={{ base: '64px', md: '80px' }}
       borderBottomWidth="1px"
       px={{ base: '16px', md: '80px' }}
       bgColor={useColorModeValue('gray.50', 'gray.800')}
       spacing="24px"
+      pos="fixed"
+      top="0"
+      zIndex="10"
     >
       <HStack spacing="16px" pointerEvents="none">
         <Image maxH={{ base: '24px', md: '32px' }} src={logoLightModeImg} />

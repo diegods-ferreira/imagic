@@ -21,7 +21,7 @@ interface UnsplashPhotoChunks {
 }
 
 export const HomePage: React.FC = () => {
-  const { ref, inView } = useInView();
+  const { ref: loadMorePhotosButtonRef, inView: isLoadMorePhotosButtonInView } = useInView();
 
   const [photosPerPage, setPhotosPerPage] = useState(10);
   const [unsplashPhotoChunks, setUnsplashPhotoChunks] = useState<UnsplashPhotoChunks>({} as UnsplashPhotoChunks);
@@ -60,18 +60,18 @@ export const HomePage: React.FC = () => {
   });
 
   useEffect(() => {
-    if (inView && !unsplashPhotosQuery.isFetchingNextPage) {
+    if (isLoadMorePhotosButtonInView && !unsplashPhotosQuery.isFetchingNextPage) {
       unsplashPhotosQuery.fetchNextPage();
     }
-  }, [inView, unsplashPhotosQuery]);
+  }, [isLoadMorePhotosButtonInView, unsplashPhotosQuery]);
 
   return (
-    <VStack w="100%" spacing="0" h="100vh">
+    <Box w="100%" h="100vh">
       <NavBar />
 
       <Hero />
 
-      <Box w="100%" maxW="1080px" px="16px" py="32px">
+      <Box w="100%" maxW="1080px" mx="auto" px="16px" py="32px">
         {(() => {
           if (unsplashPhotosQuery.isLoading) {
             return (
@@ -106,6 +106,7 @@ export const HomePage: React.FC = () => {
                 <Select
                   w="fit-content"
                   variant="filled"
+                  size={{ base: 'sm', md: 'md' }}
                   value={photosPerPage}
                   onChange={event => setPhotosPerPage(Number(event.target.value))}
                 >
@@ -117,6 +118,7 @@ export const HomePage: React.FC = () => {
                 <Select
                   w="fit-content"
                   variant="filled"
+                  size={{ base: 'sm', md: 'md' }}
                   value={orderBy}
                   onChange={event => setOrderBy(event.target.value as OrderByOption)}
                 >
@@ -153,7 +155,7 @@ export const HomePage: React.FC = () => {
               {!!unsplashPhotosQuery.hasNextPage && (
                 <Center py="40px">
                   <Button
-                    ref={ref}
+                    ref={loadMorePhotosButtonRef}
                     onClick={() => unsplashPhotosQuery.fetchNextPage()}
                     isLoading={unsplashPhotosQuery.isFetchingNextPage}
                     loadingText="Carregando mais..."
@@ -166,6 +168,6 @@ export const HomePage: React.FC = () => {
           );
         })()}
       </Box>
-    </VStack>
+    </Box>
   );
 };
